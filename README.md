@@ -1,3 +1,24 @@
+.yml
+name: CI Pipeline
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - run: pip install pytest
+
+      - run: pytest
+	  
 app.py
 def add(a,b):
 	return a+b
